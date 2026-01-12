@@ -1,0 +1,126 @@
+/* Figs Cart (Shopify-like) - works with OnlyFigs Bootstrap */
+:root{
+  --fc-border:#e5e7eb;
+  --fc-muted:#6b7280;
+  --fc-dark:#111827;
+  --fc-radius:14px;
+}
+
+.figs-cart-wrap{ margin-top: 50px; }
+@media (min-width: 992px){ .figs-cart-wrap{ margin-top: 80px; } }
+
+.figs-cart-box{
+  background:#fff;
+  border:1px solid var(--fc-border);
+  border-radius:var(--fc-radius);
+  padding:16px;
+}
+
+.figs-ship{
+  border:1px solid var(--fc-border);
+  border-radius:var(--fc-radius);
+  padding:12px 12px;
+  margin-bottom:14px;
+  color:var(--fc-muted);
+  font-size:13px;
+}
+.figs-progress{
+  height:8px; background:#f3f4f6;
+  border-radius:999px; overflow:hidden;
+  margin-top:10px;
+}
+.figs-progress > div{
+  height:100%; width:0%;
+  background: var(--fc-dark);
+  transition: width .2s ease;
+}
+
+.figs-item{
+  display:grid;
+  grid-template-columns: 86px 1fr auto;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid var(--fc-border);
+}
+.figs-item:last-child{ border-bottom:0; padding-bottom:0; }
+
+.figs-img{
+  width:86px; height:86px;
+  border-radius:12px; overflow:hidden;
+  background:#f3f4f6;
+}
+.figs-img img{ width:100%; height:100%; object-fit:cover; }
+
+.figs-name{
+  margin:0 0 6px 0;
+  font-size:14px;
+  font-weight:700;
+  color: var(--fc-dark);
+  line-height:1.25;
+}
+.figs-variant{
+  margin:0 0 10px 0;
+  font-size:12px;
+  color:var(--fc-muted);
+}
+.figs-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px;
+}
+
+.figs-qty{
+  display:inline-flex; align-items:center;
+  border:1px solid var(--fc-border);
+  border-radius:999px;
+  overflow:hidden;
+  background:#fff;
+}
+.figs-qty button{
+  width:34px; height:34px;
+  border:0; background:#fff;
+  cursor:pointer;
+  font-weight:800;
+}
+.figs-qty input{
+  width:44px; height:34px;
+  border:0; outline:none;
+  text-align:center;
+  font-weight:700;
+  font-size:13px;
+}
+
+.figs-price{
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.figs-remove{
+  margin-top:10px;
+  border:0; background:none;
+  padding:0;
+  font-size:12px;
+  color:var(--fc-muted);
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.figs-summary{
+  position: sticky;
+  top: 110px; /* below header */
+}
+.figs-sumrow{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 0;
+  border-bottom:1px dashed var(--fc-border);
+  color:var(--fc-muted);
+  font-size:13px;
+}
+.figs-sumrow strong{ color: var(--fc-dark); }
+.figs-sumrow:last-child{ border-bottom:0; }
+
+.figs-empty{
+  color:var(--fc-muted);
+  font-size:14px;
+  padding:6px 0;
+}

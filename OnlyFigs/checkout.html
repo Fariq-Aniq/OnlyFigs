@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/"
+    />
+
+    <!-- title -->
+    <title>Check Out</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/LOGO-01.png" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/onlyfigs-purple.css" />
+  </head>
+  <body>
+    <!--PreLoader-->
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="circle"></div>
+      </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <div class="site-logo">
+                <a href="index.html">
+                  <img src="assets/img/LOGO-01.png" alt="" />
+                </a>
+              </div>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <li class="current-list-item">
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="thefigs.html">The Figs</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="product.html">Products</a></li>
+                  <li>
+                    <div class="header-icons">
+                      <div class="shopping-cart-wrapper">
+                        <a class="shopping-cart" href="cart.html">
+                          <i class="fas fa-shopping-cart"></i>
+                          <span class="cart-count" data-cart-count>0</span>
+                        </a>
+                        <div class="mini-cart" id="miniCart">
+                          <!-- JS Populated -->
+                          <p style="text-align: center; padding: 10px">
+                            Cart is empty.
+                          </p>
+                        </div>
+                      </div>
+                      <a class="shopping-cart" href="wishlist.html">
+                        <i class="fas fa-heart"></i>
+                        <span class="cart-count" data-wish-count>0</span>
+                      </a>
+                      <a class="mobile-hide search-bar-icon" href="#"
+                        ><i class="fas fa-search"></i
+                      ></a>
+                      <a href="login.html" class="user-account-link"
+                        ><i class="fas fa-user"></i
+                      ></a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <a class="mobile-show search-bar-icon" href="#"
+                ><i class="fas fa-search"></i
+              ></a>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- search area -->
+    <div class="search-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <span class="close-btn"><i class="fas fa-window-close"></i></span>
+            <div class="search-bar">
+              <div class="search-bar-tablecell">
+                <h3>Search For:</h3>
+                <input type="text" placeholder="Keywords" />
+                <button type="submit">
+                  Search <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end search arewa -->
+
+    <!-- breadcrumb-section -->
+    <div class="breadcrumb-section breadcrumb-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="breadcrumb-text">
+              <p>Processed and Organic</p>
+              <h1>Check Out Product</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end breadcrumb section -->
+
+    <!-- check out section -->
+    <div class="checkout-section mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="checkout-accordion-wrap">
+              <div class="accordion" id="accordionExample">
+                <div class="card single-accordion">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapseTwo"
+                        aria-expanded="true"
+                        aria-controls="collapseTwo"
+                      >
+                        Shipping Address
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse show"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordionExample"
+                  >
+                    <div class="card-body">
+                      <div class="shipping-address-form">
+                        <form action="index.html">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <p>
+                                <label class="form-label">Full Name</label>
+                                <input
+                                  type="text"
+                                  id="billing-name"
+                                  placeholder="e.g. Adib"
+                                  required
+                                />
+                              </p>
+                            </div>
+                            <div class="col-lg-6">
+                              <p>
+                                <label class="form-label">Email Address</label>
+                                <input
+                                  type="email"
+                                  id="billing-email"
+                                  placeholder="e.g. adib@OnlyFigs.com"
+                                  required
+                                />
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <p>
+                                <label class="form-label"
+                                  >Shipping Address</label
+                                >
+                                <input
+                                  type="text"
+                                  id="billing-address"
+                                  placeholder="House No, Street Name, City, State"
+                                  required
+                                />
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <p>
+                                <label class="form-label">Phone Number</label>
+                                <input
+                                  type="tel"
+                                  id="billing-phone"
+                                  placeholder="+60 12-345 6789"
+                                  required
+                                />
+                              </p>
+                            </div>
+                          </div>
+                          <p>
+                            <label class="form-label"
+                              >Order Notes (Optional)</label
+                            >
+                            <textarea
+                              name="ship-note"
+                              id="ship-note"
+                              cols="30"
+                              rows="5"
+                              placeholder="Special instructions for delivery..."
+                            ></textarea>
+                          </p>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card single-accordion">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapseThree"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"
+                      >
+                        Payment Method
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseThree"
+                    class="collapse"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordionExample"
+                  >
+                    <div class="card-body">
+                      <div class="payment-methods">
+                        <div class="payment-option">
+                          <input
+                            type="radio"
+                            name="payment"
+                            id="payment-card"
+                            checked
+                          />
+                          <label for="payment-card"
+                            ><i class="fas fa-credit-card"></i> Credit / Debit
+                            Card</label
+                          >
+                        </div>
+                        <div class="payment-option">
+                          <input
+                            type="radio"
+                            name="payment"
+                            id="payment-atome"
+                          />
+                          <label for="payment-atome"
+                            ><i class="fas fa-bolt"></i> Atome (Buy Now, Pay
+                            Later)</label
+                          >
+                        </div>
+                        <div class="payment-option">
+                          <input type="radio" name="payment" id="payment-fpx" />
+                          <label for="payment-fpx"
+                            ><i class="fas fa-university"></i> FPX Online
+                            Banking</label
+                          >
+                        </div>
+                        <div class="payment-option">
+                          <input
+                            type="radio"
+                            name="payment"
+                            id="payment-ewallet"
+                          />
+                          <label for="payment-ewallet"
+                            ><i class="fas fa-wallet"></i> E-Wallet (TNG /
+                            GrabPay)</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="order-details-wrap">
+              <table class="order-details">
+                <thead>
+                  <tr>
+                    <th>Your order Details</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody class="order-details-body" id="order-body">
+                  <!-- JS Injected -->
+                </tbody>
+                <tbody class="checkout-details">
+                  <tr>
+                    <td>Subtotal</td>
+                    <td id="order-subtotal">$0</td>
+                  </tr>
+                  <tr>
+                    <td>Shipping</td>
+                    <td id="order-shipping">RM 10.00</td>
+                  </tr>
+                  <tr>
+                    <td>Total</td>
+                    <td id="order-total">$0</td>
+                  </tr>
+                </tbody>
+              </table>
+              <a href="#" id="place-order-btn" class="boxed-btn">Place Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end check out section -->
+
+    <!-- logo carousel -->
+    <div class="logo-carousel-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="logo-carousel-inner">
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/1.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/2.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/3.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/4.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/5.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end logo carousel -->
+
+    <!-- footer -->
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box about-widget">
+              <h2 class="widget-title">About us</h2>
+              <p>
+                OnlyFigs is your premier destination for premium fig creations.
+                Our figs are sustainably sourced from
+                <a
+                  href="https://www.superfruitsvalley.com/superfruits"
+                  target="_blank"
+                  style="color: var(--of-primary)"
+                  >Superfruits Valley</a
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box get-in-touch">
+              <h2 class="widget-title">Get in Touch</h2>
+              <ul>
+                <li>Kuala Nerang, Kedah.</li>
+                <li>support@OnlyFigs.com</li>
+                <li>+00 111 222 3333</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box pages">
+              <h2 class="widget-title">Pages</h2>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="product.html">Shop</a></li>
+                <li><a href="thefigs.html">The Figs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box subscribe">
+              <h2 class="widget-title">Subscribe</h2>
+              <p>Subscribe to our mailing list to get the latest updates.</p>
+              <form action="index.html">
+                <input type="email" placeholder="Email" />
+                <button type="submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <p>Copyrights &copy; 2025 - All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 text-right col-md-12">
+            <div class="social-icons">
+              <ul>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-x-twitter"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end copyright -->
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cart = getCart();
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          window.location.href = "product.html";
+          return;
+        }
+
+        // Render Order Summary
+        document.getElementById("order-body").innerHTML =
+          `
+                <tr><td>Product</td><td>Total</td></tr>
+                ` +
+          cart
+            .map(
+              (x) => `
+                <tr>
+                    <td>${x.title} <strong>x ${x.qty}</strong></td>
+                    <td>${money(x.price * x.qty)}</td>
+                </tr>
+            `
+            )
+            .join("");
+
+        const subtotal = cartSubtotal();
+        const shipping = getShippingCost();
+        const total = subtotal + shipping;
+
+        document.getElementById("order-subtotal").textContent = money(subtotal);
+        document.getElementById("order-shipping").textContent = money(shipping);
+        document.getElementById("order-total").textContent = money(total);
+
+        // Handle Place Order with validation
+        document.getElementById("place-order-btn").onclick = (e) => {
+          e.preventDefault();
+
+          // Get form values
+          const fullName = document.getElementById("billing-name").value.trim();
+          const email = document.getElementById("billing-email").value.trim();
+          const address = document
+            .getElementById("billing-address")
+            .value.trim();
+          const phone = document.getElementById("billing-phone").value.trim();
+          const paymentMethod = document.querySelector(
+            'input[name="payment"]:checked'
+          );
+
+          // Validate required fields
+          if (!fullName) {
+            alert("Please enter your full name");
+            document.getElementById("billing-name").focus();
+            return;
+          }
+
+          if (!email) {
+            alert("Please enter your email address");
+            document.getElementById("billing-email").focus();
+            return;
+          }
+
+          // Basic email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address");
+            document.getElementById("billing-email").focus();
+            return;
+          }
+
+          if (!address) {
+            alert("Please enter your shipping address");
+            document.getElementById("billing-address").focus();
+            return;
+          }
+
+          if (!phone) {
+            alert("Please enter your phone number");
+            document.getElementById("billing-phone").focus();
+            return;
+          }
+
+          if (!paymentMethod) {
+            alert("Please select a payment method");
+            return;
+          }
+
+          // Check if cart is empty
+          if (subtotal === 0) {
+            alert(
+              "Your cart is empty. Please add items before placing an order."
+            );
+            window.location.href = "product.html";
+            return;
+          }
+
+          // Show Success Popup using global store logic
+          showStorePopup(
+            "Order Has Been Placed Successfully!",
+            "Back to Home",
+            () => {
+              window.location.href = "index.html";
+            }
+          );
+
+          // Clear Cart
+          setCart([]);
+
+          // Fallback auto-redirect after 5s
+          setTimeout(() => {
+            if (window.location.pathname.includes("checkout.html")) {
+              window.location.href = "index.html";
+            }
+          }, 5000);
+        };
+      });
+    </script>
+  </body>
+</html>

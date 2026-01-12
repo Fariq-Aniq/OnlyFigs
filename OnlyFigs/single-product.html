@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/"
+    />
+
+    <!-- title -->
+    <title>Single Product</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/LOGO-01.png" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/onlyfigs-purple.css" />
+
+    <style>
+      /* ===== Product Gallery Styles ===== */
+      .product-gallery-wrappper {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .single-product-img {
+        position: relative;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .single-product-img img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .image-counter {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+      }
+
+      .product-thumbnails {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .thumb-img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .thumb-img:hover,
+      .thumb-img.active {
+        border-color: var(--of-primary);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ===== Product Info Styles ===== */
+      .single-product-content {
+        padding: 0 20px;
+      }
+
+      .single-product-content h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .product-badge {
+        margin-bottom: 10px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .badge-sale {
+        background: #ff4444;
+        color: #fff;
+      }
+
+      /* ===== Rating Styles ===== */
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .product-rating .stars {
+        color: #ffa500;
+        font-size: 18px;
+      }
+
+      .rating-count {
+        color: #666;
+        font-size: 14px;
+      }
+
+      /* ===== Product Meta ===== */
+      .product-meta {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .product-meta p {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+
+      .stock-status {
+        color: #28a745;
+        font-weight: 600;
+      }
+
+      .stock-status i {
+        margin-right: 5px;
+      }
+
+      .product-short-desc {
+        color: #666;
+        line-height: 1.8;
+        margin: 20px 0;
+      }
+
+      /* ===== Quantity Selector ===== */
+      .single-product-form {
+        margin-top: 30px;
+      }
+
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 15px;
+        width: fit-content;
+      }
+
+      .qty-btn {
+        background: var(--of-primary);
+        color: #fff;
+        border: none;
+        width: 40px;
+        height: 45px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .qty-btn:hover {
+        background: var(--of-primary-dark);
+      }
+
+      #qty-minus {
+        border-radius: 5px 0 0 5px;
+      }
+
+      #qty-plus {
+        border-radius: 0 5px 5px 0;
+      }
+
+      .quantity-selector input {
+        width: 80px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid var(--of-primary);
+        border-left: none;
+        border-right: none;
+        font-size: 16px;
+        font-weight: 600;
+        outline: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+      }
+
+      /* ===== Cart Buttons ===== */
+      .cart-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        vertical-align: middle;
+        line-height: 1.5;
+      }
+
+      .cart-btn-primary {
+        background: var(--of-primary);
+        color: #fff;
+        border: 2px solid var(--of-primary);
+      }
+
+      .cart-btn-primary:hover {
+        background: var(--of-primary-dark);
+        border-color: var(--of-primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cart-btn-outline {
+        background: transparent;
+        color: var(--of-primary);
+        border: 2px solid var(--of-primary);
+      }
+
+      .cart-btn-outline:hover {
+        background: var(--of-primary);
+        color: #fff;
+      }
+
+      /* ===== Trust Badges ===== */
+      .trust-badges {
+        display: flex;
+        gap: 20px;
+        margin: 30px 0;
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+
+      .badge-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .badge-item i {
+        font-size: 20px;
+        color: var(--of-primary);
+      }
+
+      /* ===== Share Section ===== */
+      .product-share-section {
+        margin-top: 20px;
+      }
+
+      .product-share-section h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .product-share {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+      }
+
+      .product-share li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        color: #333;
+        transition: all 0.3s;
+        font-size: 20px;
+      }
+
+      .product-share li a:hover {
+        color: var(--of-primary);
+        transform: translateY(-3px);
+      }
+
+      /* ===== Product Tabs ===== */
+      .product-tabs {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .nav-tabs {
+        display: flex;
+        border-bottom: 2px solid #eee;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav-item {
+        flex: 1;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 20px;
+        text-align: center;
+        color: #666;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .nav-link:hover {
+        color: var(--of-primary);
+        background: #f8f9fa;
+      }
+
+      .nav-link.active {
+        color: var(--of-primary);
+        border-bottom-color: var(--of-primary);
+        background: #fff;
+      }
+
+      .tab-content {
+        padding: 0;
+      }
+
+      .tab-pane {
+        display: none;
+      }
+
+      .tab-pane.show {
+        display: block;
+      }
+
+      .tab-content-inner {
+        padding: 40px;
+      }
+
+      .tab-content-inner h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .tab-content-inner h4 {
+        font-size: 18px;
+        margin: 20px 0 10px;
+        color: #333;
+      }
+
+      .tab-content-inner p {
+        color: #666;
+        line-height: 1.8;
+      }
+
+      .tab-content-inner ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+
+      .tab-content-inner ul li {
+        margin: 8px 0;
+        color: #666;
+      }
+
+      /* ===== Specifications Table ===== */
+      .specifications-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .specifications-table tr {
+        border-bottom: 1px solid #eee;
+      }
+
+      .specifications-table td {
+        padding: 15px 10px;
+      }
+
+      .specifications-table td:first-child {
+        width: 30%;
+        color: #333;
+      }
+
+      .specifications-table td:last-child {
+        color: #666;
+      }
+
+      /* ===== Reviews Section ===== */
+      .rating-summary {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 40px;
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 10px;
+      }
+
+      .overall-rating {
+        text-align: center;
+        min-width: 150px;
+      }
+
+      .overall-rating h2 {
+        font-size: 48px;
+        color: var(--of-primary);
+        margin: 0;
+      }
+
+      .overall-rating .stars {
+        color: #ffa500;
+        font-size: 20px;
+        margin: 10px 0;
+      }
+
+      .overall-rating p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .rating-breakdown {
+        flex: 1;
+      }
+
+      .rating-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .rating-bar span:first-child {
+        min-width: 50px;
+        color: #666;
+      }
+
+      .rating-bar .bar {
+        flex: 1;
+        height: 8px;
+        background: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .rating-bar .fill {
+        height: 100%;
+        background: #ffa500;
+        transition: width 0.3s;
+      }
+
+      .rating-bar span:last-child {
+        min-width: 40px;
+        text-align: right;
+        color: #666;
+        font-size: 14px;
+      }
+
+      /* ===== Reviews List ===== */
+      .reviews-list {
+        margin-bottom: 40px;
+      }
+
+      .review-item {
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .reviewer-info strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .reviewer-info .stars {
+        color: #ffa500;
+        font-size: 14px;
+      }
+
+      .review-date {
+        color: #999;
+        font-size: 14px;
+      }
+
+      .review-text {
+        color: #666;
+        line-height: 1.8;
+      }
+
+      /* ===== Review Form ===== */
+      .review-form {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .review-form h4 {
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--of-primary);
+      }
+
+      .star-rating-input {
+        display: flex;
+        gap: 5px;
+      }
+
+      .star-rating-input i {
+        font-size: 24px;
+        color: #ddd;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .star-rating-input i:hover,
+      .star-rating-input i.active {
+        color: #ffa500;
+        transform: scale(1.2);
+      }
+
+      /* ===== Cart Popup Styles ===== */
+      .cart-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .cart-popup.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .cart-popup-content {
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        transform: scale(0.7);
+        transition: transform 0.3s ease;
+      }
+
+      .cart-popup.show .cart-popup-content {
+        transform: scale(1);
+      }
+
+      .cart-popup-content i {
+        font-size: 60px;
+        color: #28a745;
+        margin-bottom: 20px;
+      }
+
+      .cart-popup-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .popup-close-btn {
+        background: var(--of-primary);
+        color: #fff;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .popup-close-btn:hover {
+        background: var(--of-primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* ===== Responsive Design ===== */
+      @media (max-width: 768px) {
+        .single-product-img img {
+          height: 300px;
+        }
+
+        .single-product-content {
+          padding: 20px 0;
+          margin-top: 30px;
+        }
+
+        .single-product-content h2 {
+          font-size: 24px;
+        }
+
+        .trust-badges {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .cart-btn {
+          display: block;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .rating-summary {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .tab-content-inner {
+          padding: 20px;
+        }
+
+        .nav-link {
+          padding: 15px 10px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--PreLoader-->
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="circle"></div>
+      </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <div class="site-logo">
+                <a href="index.html">
+                  <img src="assets/img/LOGO-01.png" alt="" />
+                </a>
+              </div>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <li>
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="#">Pages</a></li>
+                  <li><a href="thefigs.html">The Figs</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li class="current-list-item">
+                    <a href="product.html">Products</a>
+                  </li>
+                  <li>
+                    <div class="header-icons">
+                      <div class="shopping-cart-wrapper">
+                        <a class="shopping-cart" href="cart.html">
+                          <i class="fas fa-shopping-cart"></i>
+                          <span class="cart-count" data-cart-count>0</span>
+                        </a>
+                        <div class="mini-cart" id="miniCart">
+                          <!-- JS Populated -->
+                          <p style="text-align: center; padding: 10px">
+                            Cart is empty.
+                          </p>
+                        </div>
+                      </div>
+                      <a class="shopping-cart" href="wishlist.html">
+                        <i class="fas fa-heart"></i>
+                        <span class="cart-count" data-wish-count>0</span>
+                      </a>
+                      <a class="mobile-hide search-bar-icon" href="#">
+                        <i class="fas fa-search"></i>
+                      </a>
+                      <a href="login.html" class="user-account-link"
+                        ><i class="fas fa-user"></i
+                      ></a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <a class="mobile-show search-bar-icon" href="#"
+                ><i class="fas fa-search"></i
+              ></a>
+              <a class="mobile-show" href="login.html"
+                ><i class="fas fa-user"></i
+              ></a>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- search area -->
+    <div class="search-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <span class="close-btn"><i class="fas fa-window-close"></i></span>
+            <div class="search-bar">
+              <div class="search-bar-tablecell">
+                <h3>Search For:</h3>
+                <input type="text" placeholder="Keywords" />
+                <button type="submit">
+                  Search <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end search arewa -->
+
+    <!-- breadcrumb-section -->
+    <div class="breadcrumb-section breadcrumb-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="breadcrumb-text">
+              <p>See more Details</p>
+              <h1 id="breadcrumb-title">Product Details</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div
+              class="breadcrumb-links"
+              style="text-align: center; margin-top: 15px"
+            >
+              <a href="index.html" style="color: #fff; text-decoration: none"
+                >Home</a
+              >
+              <span style="color: #fff; margin: 0 10px">/</span>
+              <a href="product.html" style="color: #fff; text-decoration: none"
+                >Products</a
+              >
+              <span style="color: #fff; margin: 0 10px">/</span>
+              <span id="breadcrumb-category" style="color: #fff">Category</span>
+              <span style="color: #fff; margin: 0 10px">/</span>
+              <span id="breadcrumb-product" style="color: var(--of-primary)"
+                >Product</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end breadcrumb section -->
+
+    <!-- single product -->
+    <div class="single-product mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <!-- Gallery Section -->
+          <div class="col-md-6">
+            <div class="product-gallery-wrappper">
+              <div class="single-product-img">
+                <img id="sp-img" src="" alt="" />
+                <span class="image-counter" id="image-counter">1 / 1</span>
+              </div>
+              <div class="product-thumbnails" id="sp-thumbs">
+                <!-- Thumbs injected by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Details Section -->
+          <div class="col-md-6">
+            <div class="single-product-content">
+              <div class="product-badge" id="sp-badge" style="display: none">
+                <span class="badge badge-sale">Sale</span>
+              </div>
+              <h2 id="sp-title">Loading...</h2>
+
+              <!-- Rating Section -->
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="rating-count">(4.5 / 5 based on 128 reviews)</span>
+              </div>
+
+              <p class="single-product-pricing" id="sp-price"></p>
+
+              <!-- Stock and SKU -->
+              <div class="product-meta">
+                <p><strong>SKU:</strong> <span id="sp-sku">-</span></p>
+                <p>
+                  <strong>Availability:</strong>
+                  <span class="stock-status in-stock"
+                    ><i class="fas fa-check-circle"></i> In Stock</span
+                  >
+                </p>
+                <p><strong>Category:</strong> <span id="sp-cat"></span></p>
+              </div>
+
+              <p class="product-short-desc" id="sp-desc"></p>
+
+              <!-- Quantity and Add to Cart -->
+              <div class="single-product-form">
+                <div class="quantity-selector">
+                  <button type="button" class="qty-btn" id="qty-minus">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <input type="number" id="sp-qty" value="1" min="1" readonly />
+                  <button type="button" class="qty-btn" id="qty-plus">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <a href="#" id="sp-add-btn" class="cart-btn cart-btn-primary"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+                <a
+                  href="#"
+                  id="sp-wishlist-btn"
+                  class="cart-btn cart-btn-outline"
+                  ><i class="far fa-heart"></i> Add to Wishlist</a
+                >
+              </div>
+
+              <!-- Trust Badges -->
+              <div class="trust-badges">
+                <div class="badge-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Secure Checkout</span>
+                </div>
+                <div class="badge-item">
+                  <i class="fas fa-shipping-fast"></i>
+                  <span>Free Shipping</span>
+                </div>
+                <div class="badge-item">
+                  <i class="fas fa-undo"></i>
+                  <span>30-Day Returns</span>
+                </div>
+              </div>
+
+              <!-- Share Section -->
+              <div class="product-share-section">
+                <h4>Share:</h4>
+                <ul class="product-share">
+                  <li>
+                    <a href="#" title="Share on Facebook"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" title="Share on Twitter"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" title="Share on Pinterest"
+                      ><i class="fab fa-pinterest"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" title="Share on LinkedIn"
+                      ><i class="fab fa-linkedin"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Details Tabs -->
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <div class="product-tabs">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    data-toggle="tab"
+                    href="#description"
+                    role="tab"
+                    >Description</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-toggle="tab"
+                    href="#specifications"
+                    role="tab"
+                    >Specifications</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-toggle="tab"
+                    href="#reviews"
+                    role="tab"
+                    >Reviews (128)</a
+                  >
+                </li>
+              </ul>
+
+              <div class="tab-content">
+                <!-- Description Tab -->
+                <div
+                  class="tab-pane fade show active"
+                  id="description"
+                  role="tabpanel"
+                >
+                  <div class="tab-content-inner">
+                    <h3>Product Description</h3>
+                    <p id="tab-desc">Loading product description...</p>
+                    <h4>Key Features:</h4>
+                    <ul id="tab-features">
+                      <li>100% Natural ingredients</li>
+                      <li>Sustainably sourced from Superfruits Valley</li>
+                      <li>No artificial preservatives</li>
+                      <li>Rich in antioxidants and nutrients</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tab-pane fade" id="specifications" role="tabpanel">
+                  <div class="tab-content-inner">
+                    <h3>Product Specifications</h3>
+                    <table class="specifications-table">
+                      <tbody>
+                        <tr>
+                          <td><strong>Weight</strong></td>
+                          <td id="spec-weight">250g</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Ingredients</strong></td>
+                          <td id="spec-ingredients">
+                            Premium Figs, Natural Sweeteners
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Shelf Life</strong></td>
+                          <td id="spec-shelf">12 months</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Origin</strong></td>
+                          <td id="spec-origin">
+                            Kuala Nerang, Kedah, Malaysia
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Certifications</strong></td>
+                          <td id="spec-cert">Halal, Organic</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Storage</strong></td>
+                          <td id="spec-storage">Store in a cool, dry place</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-pane fade" id="reviews" role="tabpanel">
+                  <div class="tab-content-inner">
+                    <h3>Customer Reviews</h3>
+
+                    <!-- Rating Summary -->
+                    <div class="rating-summary">
+                      <div class="overall-rating">
+                        <h2>4.5</h2>
+                        <div class="stars">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>Based on 128 reviews</p>
+                      </div>
+                      <div class="rating-breakdown">
+                        <div class="rating-bar">
+                          <span>5 <i class="fas fa-star"></i></span>
+                          <div class="bar">
+                            <div class="fill" style="width: 70%"></div>
+                          </div>
+                          <span>70%</span>
+                        </div>
+                        <div class="rating-bar">
+                          <span>4 <i class="fas fa-star"></i></span>
+                          <div class="bar">
+                            <div class="fill" style="width: 20%"></div>
+                          </div>
+                          <span>20%</span>
+                        </div>
+                        <div class="rating-bar">
+                          <span>3 <i class="fas fa-star"></i></span>
+                          <div class="bar">
+                            <div class="fill" style="width: 7%"></div>
+                          </div>
+                          <span>7%</span>
+                        </div>
+                        <div class="rating-bar">
+                          <span>2 <i class="fas fa-star"></i></span>
+                          <div class="bar">
+                            <div class="fill" style="width: 2%"></div>
+                          </div>
+                          <span>2%</span>
+                        </div>
+                        <div class="rating-bar">
+                          <span>1 <i class="fas fa-star"></i></span>
+                          <div class="bar">
+                            <div class="fill" style="width: 1%"></div>
+                          </div>
+                          <span>1%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Sample Reviews -->
+                    <div class="reviews-list">
+                      <div class="review-item">
+                        <div class="review-header">
+                          <div class="reviewer-info">
+                            <strong>Sarah M.</strong>
+                            <div class="stars">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                            </div>
+                          </div>
+                          <span class="review-date">2 weeks ago</span>
+                        </div>
+                        <p class="review-text">
+                          Absolutely love this product! The quality is
+                          outstanding and the taste is incredible. Will
+                          definitely purchase again.
+                        </p>
+                      </div>
+
+                      <div class="review-item">
+                        <div class="review-header">
+                          <div class="reviewer-info">
+                            <strong>Ahmad K.</strong>
+                            <div class="stars">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="far fa-star"></i>
+                            </div>
+                          </div>
+                          <span class="review-date">1 month ago</span>
+                        </div>
+                        <p class="review-text">
+                          Great product with authentic fig flavor. Packaging is
+                          excellent and delivery was fast.
+                        </p>
+                      </div>
+
+                      <div class="review-item">
+                        <div class="review-header">
+                          <div class="reviewer-info">
+                            <strong>Lisa T.</strong>
+                            <div class="stars">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                            </div>
+                          </div>
+                          <span class="review-date">1 month ago</span>
+                        </div>
+                        <p class="review-text">
+                          This is my third time ordering. The quality is
+                          consistently excellent. Highly recommend!
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Review Form -->
+                    <div class="review-form">
+                      <h4>Write a Review</h4>
+                      <form>
+                        <div class="form-group">
+                          <label>Your Rating:</label>
+                          <div class="star-rating-input">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Your Name:</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter your name"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label>Your Review:</label>
+                          <textarea
+                            class="form-control"
+                            rows="4"
+                            placeholder="Share your experience with this product"
+                          ></textarea>
+                        </div>
+                        <button type="submit" class="boxed-btn">
+                          Submit Review
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end single product -->
+
+    <!-- more products -->
+    <div class="more-products mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+              <h3><span class="orange-text">Other</span> Products</h3>
+              <p>
+                Discover more of our authentic fig-based creations, from spicy
+                sambals to sweet artisanal jams, all crafted with love from our
+                local orchards.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="related-products">
+          <!-- Related items injected by JS -->
+        </div>
+      </div>
+    </div>
+    <!-- end more products -->
+
+    <!-- logo carousel -->
+    <div class="logo-carousel-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="logo-carousel-inner">
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/1.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/2.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/3.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/4.png" alt="" />
+              </div>
+              <div class="single-logo-item">
+                <img src="assets/img/company-logos/5.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end logo carousel -->
+
+    <!-- footer -->
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box about-widget">
+              <h2 class="widget-title">About us</h2>
+              <p>
+                OnlyFigs is your premier destination for premium fig creations.
+                Our figs are sustainably sourced from
+                <a
+                  href="https://www.superfruitsvalley.com/superfruits"
+                  target="_blank"
+                  style="color: var(--of-primary)"
+                  >Superfruits Valley</a
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box get-in-touch">
+              <h2 class="widget-title">Get in Touch</h2>
+              <ul>
+                <li>Kuala Nerang, Kedah.</li>
+                <li>support@OnlyFigs.com</li>
+                <li>+00 111 222 3333</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box pages">
+              <h2 class="widget-title">Pages</h2>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="product.html">Shop</a></li>
+                <li><a href="thefigs.html">The Figs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box subscribe">
+              <h2 class="widget-title">Subscribe</h2>
+              <p>Subscribe to our mailing list to get the latest updates.</p>
+              <form action="index.html">
+                <input type="email" placeholder="Email" />
+                <button type="submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <p>Copyrights &copy; 2025 - All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 text-right col-md-12">
+            <div class="social-icons">
+              <ul>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-x-twitter"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end copyright -->
+
+    <!-- Cart Popup Modal -->
+    <div class="cart-popup" id="cartPopup">
+      <div class="cart-popup-content">
+        <i class="fas fa-check-circle"></i>
+        <p>Item Has Been Added To Cart</p>
+        <button class="popup-close-btn" onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        // USE HELPER TO GET PRODUCTS
+        const allProducts = getAllProducts();
+        const product = allProducts.find((p) => p.id === id);
+
+        if (!product) {
+          document.querySelector(".single-product-content").innerHTML =
+            "<h3>Product not found</h3><a href='product.html' class='boxed-btn mt-3'>Back to Shop</a>";
+          return;
+        }
+
+        // Populate Data
+        document.title = product.title + " - OnlyFigs";
+
+        // --- Image Gallery Logic with Counter ---
+        const mainImg = document.getElementById("sp-img");
+        const imageCounter = document.getElementById("image-counter");
+        mainImg.src = product.img; // Default
+
+        // Render Thumbnails
+        const gallery = product.gallery || [product.img];
+        const thumbsContainer = document.getElementById("sp-thumbs");
+        thumbsContainer.innerHTML = ""; // clear
+
+        // Update image counter
+        let currentImageIndex = 0;
+        const updateImageCounter = (index) => {
+          currentImageIndex = index;
+          imageCounter.textContent = `${index + 1} / ${gallery.length}`;
+        };
+
+        gallery.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.classList.add("thumb-img");
+          if (src === product.img)
+            img.classList.add("active"); // highlight main
+          else if (index === 0 && !product.img) img.classList.add("active");
+
+          img.onclick = () => {
+            // Update main image
+            mainImg.src = src;
+
+            // Update active state
+            document
+              .querySelectorAll(".thumb-img")
+              .forEach((el) => el.classList.remove("active"));
+            img.classList.add("active");
+
+            // Update counter
+            updateImageCounter(index);
+          };
+          thumbsContainer.appendChild(img);
+        });
+
+        // Initialize counter
+        updateImageCounter(0);
+
+        // --- Product Information ---
+        document.getElementById("sp-title").textContent = product.title;
+        const priceHtml = product.compare
+          ? `<del>${money(product.compare)}</del> `
+          : "";
+        document.getElementById("sp-price").innerHTML = `${priceHtml} ${money(
+          product.price
+        )}`;
+        document.getElementById("sp-desc").textContent =
+          product.desc || "No description available.";
+        document.getElementById("sp-cat").textContent = product.cat;
+
+        // Generate SKU
+        const sku = "OF-" + product.id.toUpperCase().replace("P-", "");
+        document.getElementById("sp-sku").textContent = sku;
+
+        // Update breadcrumb
+        document.getElementById("breadcrumb-title").textContent = product.title;
+        document.getElementById("breadcrumb-category").textContent =
+          product.cat;
+        document.getElementById("breadcrumb-product").textContent =
+          product.title;
+
+        // Update tab description
+        document.getElementById("tab-desc").textContent =
+          product.desc || "No description available.";
+
+        // --- Update Specifications ---
+        if (product.specs) {
+          document.getElementById("spec-weight").textContent =
+            product.specs.weight || "N/A";
+          document.getElementById("spec-ingredients").textContent =
+            product.specs.ingredients || "N/A";
+          document.getElementById("spec-shelf").textContent =
+            product.specs.shelf || "N/A";
+          document.getElementById("spec-origin").textContent =
+            product.specs.origin || "Kuala Nerang, Kedah, Malaysia";
+          document.getElementById("spec-cert").textContent =
+            product.specs.cert || "Halal";
+          document.getElementById("spec-storage").textContent =
+            product.specs.storage || "Store in a cool, dry place";
+        } else {
+          // Fallback to defaults if no specs available
+          document.getElementById("spec-weight").textContent = "250g";
+          document.getElementById("spec-ingredients").textContent =
+            "Premium Figs, Natural Ingredients";
+          document.getElementById("spec-shelf").textContent = "12 months";
+          document.getElementById("spec-origin").textContent =
+            "Kuala Nerang, Kedah, Malaysia";
+          document.getElementById("spec-cert").textContent = "Halal, Organic";
+          document.getElementById("spec-storage").textContent =
+            "Store in a cool, dry place";
+        }
+
+        // --- Quantity Selector ---
+        const qtyInput = document.getElementById("sp-qty");
+        const qtyMinus = document.getElementById("qty-minus");
+        const qtyPlus = document.getElementById("qty-plus");
+
+        qtyMinus.onclick = () => {
+          let currentQty = parseInt(qtyInput.value) || 1;
+          if (currentQty > 1) {
+            qtyInput.value = currentQty - 1;
+          }
+        };
+
+        qtyPlus.onclick = () => {
+          let currentQty = parseInt(qtyInput.value) || 1;
+          qtyInput.value = currentQty + 1;
+        };
+
+        // Limit input to min 1
+        qtyInput.onchange = function () {
+          if (this.value < 1) this.value = 1;
+        };
+
+        // --- Add to Cart Logic ---
+        document.getElementById("sp-add-btn").onclick = (e) => {
+          e.preventDefault();
+          const qty = parseInt(qtyInput.value) || 1;
+          addToCart(product, qty);
+          // Global addToCart in store.js now handles showStorePopup automatically
+        };
+
+        // --- Add to Wishlist Logic ---
+        document.getElementById("sp-wishlist-btn").onclick = (e) => {
+          e.preventDefault();
+          addToWishlist(product);
+
+          // Visual feedback
+          const btn = e.currentTarget;
+          const icon = btn.querySelector("i");
+          icon.classList.remove("far");
+          icon.classList.add("fas");
+          btn.style.background = "var(--of-primary)";
+          btn.style.color = "#fff";
+
+          setTimeout(() => {
+            icon.classList.remove("fas");
+            icon.classList.add("far");
+            btn.style.background = "";
+            btn.style.color = "";
+          }, 1000);
+        };
+
+        // --- Tab Switching Logic ---
+        const tabLinks = document.querySelectorAll(".nav-link");
+        const tabPanes = document.querySelectorAll(".tab-pane");
+
+        tabLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href");
+
+            // Remove active class from all tabs and panes
+            tabLinks.forEach((l) => l.classList.remove("active"));
+            tabPanes.forEach((pane) => {
+              pane.classList.remove("show", "active");
+            });
+
+            // Add active class to clicked tab and corresponding pane
+            link.classList.add("active");
+            const targetPane = document.querySelector(targetId);
+            if (targetPane) {
+              targetPane.classList.add("show", "active");
+            }
+          });
+        });
+
+        // --- Star Rating Input for Review Form ---
+        const stars = document.querySelectorAll(".star-rating-input i");
+        let selectedRating = 0;
+
+        stars.forEach((star, index) => {
+          star.addEventListener("mouseenter", () => {
+            // Highlight stars up to hovered star
+            stars.forEach((s, i) => {
+              if (i <= index) {
+                s.classList.remove("far");
+                s.classList.add("fas", "active");
+              } else {
+                s.classList.remove("fas", "active");
+                s.classList.add("far");
+              }
+            });
+          });
+
+          star.addEventListener("click", () => {
+            selectedRating = index + 1;
+            // Keep stars highlighted after click
+            stars.forEach((s, i) => {
+              if (i <= index) {
+                s.classList.remove("far");
+                s.classList.add("fas", "active");
+              } else {
+                s.classList.remove("fas", "active");
+                s.classList.add("far");
+              }
+            });
+          });
+        });
+
+        // Reset stars on mouse leave if no rating selected
+        document
+          .querySelector(".star-rating-input")
+          .addEventListener("mouseleave", () => {
+            if (selectedRating === 0) {
+              stars.forEach((s) => {
+                s.classList.remove("fas", "active");
+                s.classList.add("far");
+              });
+            } else {
+              // Show selected rating
+              stars.forEach((s, i) => {
+                if (i < selectedRating) {
+                  s.classList.remove("far");
+                  s.classList.add("fas", "active");
+                } else {
+                  s.classList.remove("fas", "active");
+                  s.classList.add("far");
+                }
+              });
+            }
+          });
+
+        // --- Social Sharing Links ---
+        const shareLinks = document.querySelectorAll(".product-share a");
+        const productUrl = encodeURIComponent(window.location.href);
+        const productTitle = encodeURIComponent(product.title);
+        const productImage = encodeURIComponent(
+          window.location.origin + "/" + product.img
+        );
+
+        shareLinks.forEach((link) => {
+          const icon = link.querySelector("i");
+          if (icon.classList.contains("fa-facebook-f")) {
+            link.href = `https://www.facebook.com/sharer/sharer.php?u=${productUrl}`;
+            link.target = "_blank";
+          } else if (icon.classList.contains("fa-twitter")) {
+            link.href = `https://twitter.com/intent/tweet?url=${productUrl}&text=${productTitle}`;
+            link.target = "_blank";
+          } else if (icon.classList.contains("fa-pinterest")) {
+            link.href = `https://pinterest.com/pin/create/button/?url=${productUrl}&media=${productImage}&description=${productTitle}`;
+            link.target = "_blank";
+          } else if (icon.classList.contains("fa-linkedin")) {
+            link.href = `https://www.linkedin.com/sharing/share-offsite/?url=${productUrl}`;
+            link.target = "_blank";
+          }
+        });
+
+        // Close Popup global helper
+        window.closePopup = function () {
+          document.getElementById("cartPopup").classList.remove("show");
+        };
+
+        // --- Related Products ---
+        let related = allProducts.filter(
+          (p) => p.cat === product.cat && p.id !== product.id
+        );
+
+        // If fewer than 3, fill with others
+        if (related.length < 3) {
+          const others = allProducts.filter(
+            (p) => p.cat !== product.cat && p.id !== product.id
+          );
+          const needed = 3 - related.length;
+          related = related.concat(others.slice(0, needed));
+        }
+
+        // Ensure we strictly slice to 3
+        related = related.slice(0, 3);
+        const relatedContainer = document.getElementById("related-products");
+        if (related.length > 0) {
+          relatedContainer.innerHTML = related
+            .map(
+              (p) => `
+                    <div class="col-lg-4 col-md-6 text-center">
+                        <div class="single-product-item">
+                            <div class="product-image">
+                                <a href="single-product.html?id=${
+                                  p.id
+                                }"><img src="${p.img}" alt="${
+                p.title
+              }" style="height:200px; object-fit:cover;"></a>
+                            </div>
+                            <h3>${p.title}</h3>
+                            <p class="product-price">${money(p.price)}</p>
+                            <a href="javascript:void(0)" onclick='addToCart(${JSON.stringify(
+                              p
+                            )})' class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                 `
+            )
+            .join("");
+        } else {
+          // Hide container if no related products
+          document.querySelector(".more-products").style.display = "none";
+        }
+      });
+    </script>
+    <div class="back-to-top"><i class="fas fa-angle-up"></i></div>
+  </body>
+</html>

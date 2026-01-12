@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard - OnlyFigs</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/LOGO-01.png" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/onlyfigs-purple.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      :root {
+        --dash-bg: #f8fbff;
+        --sidebar-bg: #0b1a26;
+        --sidebar-active: #f28123;
+        --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        background-color: var(--dash-bg);
+        overflow-x: hidden;
+      }
+
+      .dashboard-wrapper {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .dash-sidebar {
+        width: 260px;
+        background: var(--sidebar-bg);
+        color: #fff;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+
+      .dash-sidebar .site-logo img {
+        max-height: 40px;
+        margin-bottom: 20px;
+      }
+
+      .dash-sidebar h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #a0aec0;
+        margin-bottom: 30px;
+        padding-left: 10px;
+      }
+
+      .dash-sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .dash-sidebar ul li {
+        margin-bottom: 10px;
+      }
+
+      .dash-sidebar ul li a {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-size: 15px;
+      }
+
+      .dash-sidebar ul li a i {
+        width: 20px;
+        margin-right: 15px;
+        font-size: 18px;
+        opacity: 0.8;
+      }
+
+      .dash-sidebar ul li a:hover,
+      .dash-sidebar ul li a.active {
+        background: var(--sidebar-active);
+        box-shadow: 0 4px 15px rgba(242, 129, 35, 0.3);
+      }
+
+      /* Content */
+      .dash-content {
+        flex-grow: 1;
+        padding: 40px;
+        max-width: calc(100vw - 260px);
+      }
+
+      .dash-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .dash-header h2 {
+        font-weight: 700;
+        font-size: 28px;
+        color: #1a202c;
+      }
+
+      .admin-profile {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .admin-profile img {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        border: 2px solid #fff;
+        box-shadow: var(--card-shadow);
+      }
+
+      /* Sections */
+      .dash-section {
+        display: none;
+        animation: fadeIn 0.4s ease forwards;
+      }
+
+      .dash-section.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Stats Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .stat-card {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: var(--card-shadow);
+      }
+
+      .stat-card h4 {
+        color: #718096;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .stat-card .value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a202c;
+        margin: 0;
+      }
+
+      .growth-label {
+        font-size: 11px;
+        font-weight: 600;
+        margin-left: 5px;
+        padding: 2px 8px;
+        border-radius: 12px;
+      }
+      .growth-up {
+        background: #c6f6d5;
+        color: #22543d;
+      }
+      .growth-neutral {
+        background: #edf2f7;
+        color: #4a5568;
+      }
+
+      /* Dash Card Content */
+      .dash-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: var(--card-shadow);
+      }
+
+      /* Table Styling */
+      .dash-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+      }
+
+      .dash-table th {
+        color: #a0aec0;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        border-bottom: 1px solid #edf2f7;
+      }
+
+      .dash-table td {
+        padding: 15px;
+        background: #fff;
+        vertical-align: middle;
+        font-size: 14px;
+      }
+
+      .status-label {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .status-completed {
+        background: #c6f6d5;
+        color: #22543d;
+      }
+      .status-pending {
+        background: #feebc8;
+        color: #744210;
+      }
+
+      .prod-thumb {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .charts-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 991px) {
+        .charts-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- sidebar -->
+      <aside class="dash-sidebar">
+        <div class="site-logo">
+          <a href="index.html">
+            <img src="assets/img/LOGO-01.png" alt="OnlyFigs" />
+          </a>
+        </div>
+        <h3>Admin Panel</h3>
+        <ul>
+          <li>
+            <a
+              href="javascript:void(0)"
+              class="nav-link active"
+              data-target="overview"
+            >
+              <i class="fas fa-th-large"></i>&nbsp; Dashboard
+            </a>
+          </li>
+          <li>
+            <a
+              href="javascript:void(0)"
+              class="nav-link"
+              data-target="products"
+            >
+              <i class="fas fa-box-open"></i>&nbsp; Products
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="nav-link" data-target="orders">
+              <i class="fas fa-shopping-cart"></i>&nbsp; Orders
+            </a>
+          </li>
+          <li>
+            <a
+              href="javascript:void(0)"
+              class="nav-link"
+              data-target="customers"
+            >
+              <i class="fas fa-users"></i>&nbsp; Customers
+            </a>
+          </li>
+          <li>
+            <a
+              href="javascript:void(0)"
+              class="nav-link"
+              data-target="settings"
+            >
+              <i class="fas fa-cog"></i>&nbsp; Settings
+            </a>
+          </li>
+          <li style="margin-top: 50px">
+            <a href="javascript:void(0)" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i>&nbsp; Logout
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- main content -->
+      <main class="dash-content">
+        <header class="dash-header">
+          <h2 id="sectionTitle">Dashboard Overview</h2>
+          <div class="admin-profile">
+            <span>Welcome, <strong>Admin</strong></span>
+            <img src="assets/img/avaters/avatar1.png" alt="Admin" />
+          </div>
+        </header>
+
+        <!-- Overview Section -->
+        <div id="overview" class="dash-section active">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h4>Total Sales</h4>
+              <p class="value">
+                RM 12,450.00 <span class="growth-label growth-up">+24%</span>
+              </p>
+            </div>
+            <div class="stat-card">
+              <h4>Total Orders</h4>
+              <p class="value">
+                158 <span class="growth-label growth-up">+12%</span>
+              </p>
+            </div>
+            <div class="stat-card">
+              <h4>Total Customers</h4>
+              <p class="value">
+                1,204 <span class="growth-label growth-up">+5%</span>
+              </p>
+            </div>
+            <div class="stat-card">
+              <h4>Products</h4>
+              <p class="value">
+                11 <span class="growth-label growth-neutral">Stable</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="charts-grid">
+            <div class="dash-card">
+              <h3 style="margin-bottom: 25px; font-weight: 700">
+                Sales Analytics
+              </h3>
+              <div style="height: 300px">
+                <canvas id="salesChart"></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <h3 style="margin-bottom: 25px; font-weight: 700">
+                Top Categories
+              </h3>
+              <div style="height: 300px">
+                <canvas id="categoryChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <h3 style="margin-bottom: 25px; font-weight: 700">Recent Orders</h3>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recentOrdersTable">
+                  <!-- JS Populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Section -->
+        <div id="products" class="dash-section">
+          <div class="dash-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h3 style="font-weight: 700">Manage Products</h3>
+              <button class="cart-btn" style="border: none">
+                Add New Product
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductsTable">
+                  <!-- JS Populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Section -->
+        <div id="orders" class="dash-section">
+          <div class="dash-card">
+            <h3 style="margin-bottom: 25px; font-weight: 700">
+              Full Order History
+            </h3>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="fullOrdersTable">
+                  <!-- JS Populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customers Section -->
+        <div id="customers" class="dash-section">
+          <div class="dash-card">
+            <h3 style="margin-bottom: 25px; font-weight: 700">
+              Customer Directory
+            </h3>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Join Date</th>
+                    <th>Orders</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminCustomersTable">
+                  <!-- JS Populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="dash-section">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="dash-card">
+                <h3 style="margin-bottom: 25px; font-weight: 700">
+                  Admin Settings
+                </h3>
+                <form class="login-form">
+                  <label>Store Name</label>
+                  <input type="text" value="OnlyFigs Official Store" />
+                  <label>Admin Email</label>
+                  <input type="email" value="admin@onlyfigs.com" />
+                  <label>New Password</label>
+                  <input
+                    type="password"
+                    placeholder="Leave blank to keep current"
+                  />
+                  <button
+                    type="button"
+                    class="cart-btn mt-3"
+                    style="border: none"
+                  >
+                    Save Changes
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Auth Check
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser || currentUser.role !== "admin") {
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Navigation Switch logic
+        $(".nav-link").click(function () {
+          const target = $(this).data("target");
+          $(".nav-link").removeClass("active");
+          $(this).addClass("active");
+
+          $(".dash-section").removeClass("active");
+          $("#" + target).addClass("active");
+
+          $("#sectionTitle").text($(this).text().trim());
+        });
+
+        // Initialize Data
+        initDashboard();
+      });
+
+      function initDashboard() {
+        const products = getAllProducts();
+
+        // Populate Products Table
+        const productsHtml = products
+          .map(
+            (p) => `
+          <tr>
+            <td><img src="${p.img}" class="prod-thumb" alt=""></td>
+            <td style="font-weight:600">${p.title}</td>
+            <td style="color:#718096">${p.cat || "Category"}</td>
+            <td style="font-weight:600">RM ${p.price.toFixed(2)}</td>
+            <td>
+              <a href="#" class="text-primary mr-2"><i class="fas fa-edit"></i></a>
+              <a href="#" class="text-danger"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+        `
+          )
+          .join("");
+        $("#adminProductsTable").html(productsHtml);
+
+        // Mock Orders populated with real product names
+        const mockOrders = [
+          {
+            id: "#ORD-9901",
+            user: "Fariq Amin",
+            item: "Figs Detox Collection",
+            date: "Jan 10, 2026",
+            total: "RM 38.00",
+            status: "Completed",
+          },
+          {
+            id: "#ORD-9902",
+            user: "Zulhelmi",
+            item: "Premium Fig Jam",
+            date: "Jan 10, 2026",
+            total: "RM 18.00",
+            status: "Pending",
+          },
+          {
+            id: "#ORD-9903",
+            user: "Ariff",
+            item: "Figs Seed Oil",
+            date: "Jan 09, 2026",
+            total: "RM 55.00",
+            status: "Completed",
+          },
+          {
+            id: "#ORD-9904",
+            user: "Aiman",
+            item: "Figs Leaf Tea",
+            date: "Jan 08, 2026",
+            total: "RM 48.00",
+            status: "Completed",
+          },
+          {
+            id: "#ORD-9905",
+            user: "Siti Sarah",
+            item: "Figs Perfume",
+            date: "Jan 08, 2026",
+            total: "RM 85.00",
+            status: "Completed",
+          },
+          {
+            id: "#ORD-9906",
+            user: "Rizal",
+            item: "Figs Gummy Chews",
+            date: "Jan 07, 2026",
+            total: "RM 12.00",
+            status: "Pending",
+          },
+          {
+            id: "#ORD-9907",
+            user: "Farahanim",
+            item: "Figs Face Mask",
+            date: "Jan 06, 2026",
+            total: "RM 45.00",
+            status: "Completed",
+          },
+          {
+            id: "#ORD-9908",
+            user: "Azman",
+            item: "Figs Soap Collection",
+            date: "Jan 05, 2026",
+            total: "RM 25.00",
+            status: "Completed",
+          },
+        ];
+
+        const recentOrdersHtml = mockOrders
+          .slice(0, 5)
+          .map(
+            (o) => `
+          <tr>
+            <td>${o.id}</td>
+            <td style="font-weight:600">${o.user}</td>
+            <td>${o.date}</td>
+            <td style="font-weight:600">${o.total}</td>
+            <td><span class="status-label status-${o.status.toLowerCase()}">${
+              o.status
+            }</span></td>
+          </tr>
+        `
+          )
+          .join("");
+        $("#recentOrdersTable").html(recentOrdersHtml);
+
+        const fullOrdersHtml = mockOrders
+          .map(
+            (o) => `
+          <tr>
+            <td>${o.id}</td>
+            <td style="font-weight:600">${o.user}</td>
+            <td>${o.date}</td>
+            <td style="font-weight:600">${o.total}</td>
+            <td><span class="status-label status-${o.status.toLowerCase()}">${
+              o.status
+            }</span></td>
+            <td><a href="#" class="cart-btn" style="padding: 5px 15px; font-size: 12px; border:none">View</a></td>
+          </tr>
+        `
+          )
+          .join("");
+        $("#fullOrdersTable").html(fullOrdersHtml);
+
+        // Mock Customers
+        const mockCustomers = [
+          {
+            name: "Fariq Amin",
+            email: "fariq@onlyfigs.com",
+            date: "Jan 01, 2026",
+            orders: 24,
+          },
+          {
+            name: "Zulhelmi",
+            email: "zul@gmail.com",
+            date: "Jan 02, 2026",
+            orders: 8,
+          },
+          {
+            name: "Ariff",
+            email: "ariff@outlook.com",
+            date: "Jan 03, 2026",
+            orders: 15,
+          },
+          {
+            name: "Siti Sarah",
+            email: "siti@yahoo.com",
+            date: "Jan 04, 2026",
+            orders: 32,
+          },
+          {
+            name: "Farahanim",
+            email: "anim@gmail.com",
+            date: "Jan 05, 2026",
+            orders: 5,
+          },
+          {
+            name: "Azman",
+            email: "azman@gmail.com",
+            date: "Jan 06, 2026",
+            orders: 12,
+          },
+        ];
+
+        const customersHtml = mockCustomers
+          .map(
+            (c) => `
+          <tr>
+            <td style="font-weight:600">${c.name}</td>
+            <td>${c.email}</td>
+            <td>${c.date}</td>
+            <td>${c.orders}</td>
+            <td><button class="cart-btn" style="padding: 5px 15px; font-size:12px; border:none">Message</button></td>
+          </tr>
+        `
+          )
+          .join("");
+        $("#adminCustomersTable").html(customersHtml);
+
+        // Initialize Animated Charts
+        initCharts();
+      }
+
+      function initCharts() {
+        // Sales Analytics Chart (Line)
+        const salesCtx = document.getElementById("salesChart").getContext("2d");
+        new Chart(salesCtx, {
+          type: "line",
+          data: {
+            labels: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+            datasets: [
+              {
+                label: "Monthly Revenue (RM)",
+                data: [4200, 5800, 7100, 6400, 9800, 12450],
+                borderColor: "#f28123",
+                backgroundColor: "rgba(242, 129, 35, 0.1)",
+                borderWidth: 3,
+                tension: 0.4,
+                fill: true,
+                pointBackgroundColor: "#fff",
+                pointBorderColor: "#f28123",
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: { color: "#edf2f7" },
+                ticks: { font: { family: "Poppins" } },
+              },
+              x: {
+                grid: { display: false },
+                ticks: { font: { family: "Poppins" } },
+              },
+            },
+            animation: {
+              duration: 2000,
+              easing: "easeInOutQuart",
+            },
+          },
+        });
+
+        // Category Distribution Chart (Doughnut)
+        const catCtx = document
+          .getElementById("categoryChart")
+          .getContext("2d");
+        new Chart(catCtx, {
+          type: "doughnut",
+          data: {
+            labels: ["Detox", "Wellness", "Beauty", "Food"],
+            datasets: [
+              {
+                data: [35, 25, 20, 20],
+                backgroundColor: ["#f28123", "#0b1a26", "#a0aec0", "#ffb74d"],
+                borderWidth: 0,
+                hoverOffset: 15,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  padding: 20,
+                  font: { family: "Poppins", size: 12 },
+                },
+              },
+            },
+            cutout: "70%",
+            animation: {
+              animateRotate: true,
+              animateScale: true,
+              duration: 2000,
+              easing: "easeOutElastic",
+            },
+          },
+        });
+      }
+
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

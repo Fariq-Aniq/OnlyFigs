@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product</title>
+    <link rel="shortcut icon" type="image/png" href="assets/img/LOGO-01.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/onlyfigs-purple.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <div class="site-logo">
+                <a href="index.html">
+                  <img src="assets/img/LOGO-01.png" alt="" />
+                </a>
+              </div>
+              <nav class="main-menu">
+                <ul>
+                  <li>
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="thefigs.html">The Figs</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li class="current-list-item">
+                    <a href="product.html">Products</a>
+                  </li>
+                  <li>
+                    <div class="header-icons">
+                      <div class="shopping-cart-wrapper">
+                        <a class="shopping-cart" href="cart.html">
+                          <i class="fas fa-shopping-cart"></i>
+                          <span class="cart-count" data-cart-count>0</span>
+                        </a>
+                        <div class="mini-cart" id="miniCart">
+                          <!-- JS Populated -->
+                          <p style="text-align: center; padding: 10px">
+                            Cart is empty.
+                          </p>
+                        </div>
+                      </div>
+                      <a class="shopping-cart" href="wishlist.html">
+                        <i class="fas fa-heart"></i>
+                        <span class="cart-count" data-wish-count>0</span>
+                      </a>
+                      <a class="mobile-hide search-bar-icon" href="#">
+                        <i class="fas fa-search"></i>
+                      </a>
+                      <a href="login.html" class="user-account-link"
+                        ><i class="fas fa-user"></i
+                      ></a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <a class="mobile-show search-bar-icon" href="#"
+                ><i class="fas fa-search"></i
+              ></a>
+              <a class="mobile-show" href="login.html"
+                ><i class="fas fa-user"></i
+              ></a>
+              <div class="mobile-menu"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <span class="close-btn"><i class="fas fa-window-close"></i></span>
+            <div class="search-bar">
+              <div class="search-bar-tablecell">
+                <h3>Search For:</h3>
+                <input type="text" placeholder="Keywords" />
+                <button type="submit">
+                  Search <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="breadcrumb-section breadcrumb-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="breadcrumb-text">
+              <p>Handcrafted Fig Treasures</p>
+              <h1>All Products</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-section mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <!-- SIDEBAR FILTERS -->
+          <div class="col-lg-3">
+            <div class="of-box">
+              <h4>Collections</h4>
+              <ul class="of-list">
+                <li class="active" onclick="filterCat('all', this)">
+                  <span class="of-dot"></span> All products
+                </li>
+                <li onclick="filterCat('Fig leaf tea', this)">
+                  <span class="of-dot"></span> Fig Leaf Tea
+                </li>
+                <li onclick="filterCat('Virgin Fig oil', this)">
+                  <span class="of-dot"></span> Fig Seed Oil
+                </li>
+                <li onclick="filterCat('Fig snack', this)">
+                  <span class="of-dot"></span> Fig Snacks & Jam
+                </li>
+                <li onclick="filterCat('Fig gift sets', this)">
+                  <span class="of-dot"></span> Fig Gift Sets
+                </li>
+                <li onclick="filterCat('Fig cosmetic', this)">
+                  <span class="of-dot"></span> Fig Cosmetics
+                </li>
+                <li onclick="filterCat('Lokal Kultur Edition', this)">
+                  <span class="of-dot"></span> Lokal Kultur Edition
+                </li>
+              </ul>
+
+              <div class="price-range-wrap mt-4">
+                <h4>Price Range</h4>
+                <input
+                  type="range"
+                  id="priceRange"
+                  class="price-slider"
+                  min="0"
+                  max="100"
+                  value="100"
+                  oninput="updatePriceLabel(this.value)"
+                />
+                <div class="range-inputs">
+                  <span>RM 0</span>
+                  <span class="ml-auto" id="priceLabel">RM 100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-9">
+            <!-- CATEGORY DESCRIPTION BLURB -->
+            <div id="categoryDesc" class="category-description text-center">
+              <div class="category-description-inner">
+                <span class="cat-subtitle">LOCAL CULTURE & BATIK FUSION</span>
+                <h2 id="catTitle" class="cat-main-title"></h2>
+                <div class="cat-desc-text">
+                  <p id="catText"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- TOOLBAR: SEARCH & SORT -->
+            <div class="of-toolbar mb-4">
+              <div class="product-search">
+                <input
+                  type="text"
+                  id="productSearch"
+                  placeholder="Search products..."
+                  onkeyup="filterProducts()"
+                />
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="product-sort">
+                <select id="sortSelect" onchange="sortProducts()">
+                  <option value="default">Default Sorting</option>
+                  <option value="az">Alphabetically, A–Z</option>
+                  <option value="za">Alphabetically, Z–A</option>
+                  <option value="low">Price, low to high</option>
+                  <option value="high">Price, high to low</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- STATIC PRODUCT GRID -->
+            <div class="row" id="productGrid">
+              <!-- Grid Items Injected with Wishlist Buttons -->
+              <!-- 1. FIGS DETOX -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig leaf tea"
+                data-price="38"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-detox'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Detox/figs detox set.png"
+                      class="main-img"
+                      alt="Figs Detox Collection"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Detox/figs detox tea bags.png"
+                      class="hover-img"
+                      alt="Figs Detox Collection"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Detox Collection</h3>
+                  <p class="product-price">RM 38.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-detox'); toggleHeart(this)"
+                    data-id="p-detox"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <!-- Hidden for scrape logic stability -->
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-detox"
+                    data-title="Figs Detox Collection"
+                    data-price="38.00"
+                    data-img="assets/img/products/Figs Detox/figs detox set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 2. FIGS LEAF TEA -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig leaf tea"
+                data-price="48"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-tea'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Leaf Tea/figs leaf tea set.png"
+                      class="main-img"
+                      alt="Figs Leaf Tea"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Leaf Tea/leaftea.png"
+                      class="hover-img"
+                      alt="Figs Leaf Tea"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Leaf Tea</h3>
+                  <p class="product-price">RM 48.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-tea'); toggleHeart(this)"
+                    data-id="p-tea"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-tea"
+                    data-title="Figs Leaf Tea"
+                    data-price="48.00"
+                    data-img="assets/img/products/Figs Leaf Tea/figs leaf tea set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 3. FIGS CAPSULE -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig leaf tea"
+                data-price="35"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-capsule'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Capsule/figs fiber capsule set.png"
+                      class="main-img"
+                      alt="Figs Fiber Capsules"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Capsule/figs fiber capsule bottle.png"
+                      class="hover-img"
+                      alt="Figs Fiber Capsules"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Fiber Capsules</h3>
+                  <p class="product-price">RM 35.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-capsule'); toggleHeart(this)"
+                    data-id="p-capsule"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-capsule"
+                    data-title="Figs Fiber Capsules"
+                    data-price="35.00"
+                    data-img="assets/img/products/Figs Capsule/figs fiber capsule set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 4. FIGS SEED OIL -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Virgin Fig oil"
+                data-price="55"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-oil'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Seed Oil/figs seed oil and box.png"
+                      class="main-img"
+                      alt="Figs Seed Oil"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Seed Oil/figs seed oil bottle.png"
+                      class="hover-img"
+                      alt="Figs Seed Oil"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Seed Oil</h3>
+                  <p class="product-price">RM 55.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-oil'); toggleHeart(this)"
+                    data-id="p-oil"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-oil"
+                    data-title="Figs Seed Oil"
+                    data-price="55.00"
+                    data-img="assets/img/products/Figs Seed Oil/figs seed oil and box.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 5. FIGS JAM -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig snack"
+                data-price="18"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-jam'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Jam/figs jam set.png"
+                      class="main-img"
+                      alt="Premium Fig Jam"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Jam/figs jam bottle.png"
+                      class="hover-img"
+                      alt="Premium Fig Jam"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Premium Fig Jam</h3>
+                  <p class="product-price">RM 18.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-jam'); toggleHeart(this)"
+                    data-id="p-jam"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-jam"
+                    data-title="Premium Fig Jam"
+                    data-price="18.00"
+                    data-img="assets/img/products/Figs Jam/figs jam set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 6. FIGS VINEGAR -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig gift sets"
+                data-price="19"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-vinegar'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Vinegar/figs viniger box and bottle.png"
+                      class="main-img"
+                      alt="Aged Fig Vinegar"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Vinegar/figs viniger bottle.png"
+                      class="hover-img"
+                      alt="Aged Fig Vinegar"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Aged Fig Vinegar</h3>
+                  <p class="product-price">RM 19.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-vinegar'); toggleHeart(this)"
+                    data-id="p-vinegar"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-vinegar"
+                    data-title="Aged Fig Vinegar"
+                    data-price="19.00"
+                    data-img="assets/img/products/Figs Vinegar/figs viniger box and bottle.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 7. FIGS GUMMY -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig snack"
+                data-price="12"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-gummy'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Gummy/figs gummy set.png"
+                      class="main-img"
+                      alt="Figs Gummy Chews"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Gummy/figs gummy bottle.png"
+                      class="hover-img"
+                      alt="Figs Gummy Chews"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Gummy Chews</h3>
+                  <p class="product-price">RM 12.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-gummy'); toggleHeart(this)"
+                    data-id="p-gummy"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-gummy"
+                    data-title="Figs Gummy Chews"
+                    data-price="12.00"
+                    data-img="assets/img/products/Figs Gummy/figs gummy set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 8. FIGS BODY SCRUB -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig cosmetic"
+                data-price="30"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-scrub'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Body scrub/figs body scrub and box.png"
+                      class="main-img"
+                      alt="Figs Body Scrub"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Body scrub/figs body scrub bottle.png"
+                      class="hover-img"
+                      alt="Figs Body Scrub"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Body Scrub</h3>
+                  <p class="product-price">RM 30.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-scrub'); toggleHeart(this)"
+                    data-id="p-scrub"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-scrub"
+                    data-title="Figs Body Scrub"
+                    data-price="30.00"
+                    data-img="assets/img/products/Figs Body scrub/figs body scrub and box.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 9. FIGS FACE MASK -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig cosmetic"
+                data-price="45"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-mask'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Face Mask/figs face mask bittle and box.png"
+                      class="main-img"
+                      alt="Figs Face Mask"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Face Mask/figs face mask bottle.png"
+                      class="hover-img"
+                      alt="Figs Face Mask"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Face Mask</h3>
+                  <p class="product-price">RM 45.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-mask'); toggleHeart(this)"
+                    data-id="p-mask"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-mask"
+                    data-title="Figs Face Mask"
+                    data-price="45.00"
+                    data-img="assets/img/products/Figs Face Mask/figs face mask bittle and box.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 10. FIGS PERFUME -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig cosmetic"
+                data-price="85"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-perfume'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Perfume/figs perfume and bottle.png"
+                      class="main-img"
+                      alt="Figs Perfume"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Perfume/figs perfume bottle.png"
+                      class="hover-img"
+                      alt="Figs Perfume"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Perfume</h3>
+                  <p class="product-price">RM 85.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-perfume'); toggleHeart(this)"
+                    data-id="p-perfume"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-perfume"
+                    data-title="Figs Perfume"
+                    data-price="85.00"
+                    data-img="assets/img/products/Figs Perfume/figs perfume and bottle.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 11. FIGS SOAP -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Fig cosmetic"
+                data-price="25"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-soap'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Soap/figs soap set.png"
+                      class="main-img"
+                      alt="Figs Soap Collection"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Soap/figs soap.png"
+                      class="hover-img"
+                      alt="Figs Soap Collection"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Soap Collection</h3>
+                  <p class="product-price">RM 25.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-soap'); toggleHeart(this)"
+                    data-id="p-soap"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-soap"
+                    data-title="Figs Soap Collection"
+                    data-price="25.00"
+                    data-img="assets/img/products/Figs Soap/figs soap set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 12. FIGS ANCHOVY SAMBAL -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Lokal Kultur Edition"
+                data-price="22"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-anchovy-sambal'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Anchovy Sambal/Set.png"
+                      class="main-img"
+                      alt="Figs Anchovy Sambal"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Anchovy Sambal/Bottle.png"
+                      class="hover-img"
+                      alt="Figs Anchovy Sambal"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Anchovy Sambal</h3>
+                  <p class="product-price">RM 22.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-anchovy-sambal'); toggleHeart(this)"
+                    data-id="p-anchovy-sambal"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-anchovy-sambal"
+                    data-title="Figs Anchovy Sambal"
+                    data-price="22.00"
+                    data-img="assets/img/products/Figs Anchovy Sambal/Set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 13. FIGS SWEET & SPICY SAMBAL PASTE -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Lokal Kultur Edition"
+                data-price="25"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-spicy-sambal'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Sweet & Spicy Sambal Paste/Set.png"
+                      class="main-img"
+                      alt="Figs Sweet & Spicy Sambal Paste"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Sweet & Spicy Sambal Paste/Bottle.png"
+                      class="hover-img"
+                      alt="Figs Sweet & Spicy Sambal Paste"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Sweet & Spicy Sambal Paste</h3>
+                  <p class="product-price">RM 25.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-spicy-sambal'); toggleHeart(this)"
+                    data-id="p-spicy-sambal"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-spicy-sambal"
+                    data-title="Figs Sweet & Spicy Sambal Paste"
+                    data-price="25.00"
+                    data-img="assets/img/products/Figs Sweet & Spicy Sambal Paste/Set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 14. FIGS COCONUT FLOSS -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Lokal Kultur Edition"
+                data-price="15"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-coconut-floss'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Coconut Floss/Set.png"
+                      class="main-img"
+                      alt="Figs Coconut Floss"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Coconut Floss/Bottle.png"
+                      class="hover-img"
+                      alt="Figs Coconut Floss"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Coconut Floss</h3>
+                  <p class="product-price">RM 15.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-coconut-floss'); toggleHeart(this)"
+                    data-id="p-coconut-floss"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-coconut-floss"
+                    data-title="Figs Coconut Floss"
+                    data-price="15.00"
+                    data-img="assets/img/products/Figs Coconut Floss/Set.png"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- 15. FIGS GULA MELAKA JAM -->
+              <div
+                class="col-lg-4 col-md-6 text-center of-card"
+                data-cat="Lokal Kultur Edition"
+                data-price="20"
+              >
+                <div
+                  class="single-product-item"
+                  onclick="location.href='single-product.html?id=p-gula-melaka-jam'"
+                >
+                  <div class="product-image">
+                    <img
+                      src="assets/img/products/Figs Gula Melaka Jam/Set.png"
+                      class="main-img"
+                      alt="Figs Gula Melaka Jam"
+                      style="height: 220px; object-fit: cover"
+                    />
+                    <img
+                      src="assets/img/products/Figs Gula Melaka Jam/Bottle.png"
+                      class="hover-img"
+                      alt="Figs Gula Melaka Jam"
+                      style="height: 220px; object-fit: cover"
+                    />
+                  </div>
+                  <h3 class="of-title">Figs Gula Melaka Jam</h3>
+                  <p class="product-price">RM 20.00</p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="event.stopPropagation(); toggleWishlist('p-gula-melaka-jam'); toggleHeart(this)"
+                    data-id="p-gula-melaka-jam"
+                    class="cart-btn wishlist-icon"
+                    ><i class="far fa-heart"></i
+                  ></a>
+                  <span
+                    class="cart-btn-dom d-none"
+                    data-id="p-gula-melaka-jam"
+                    data-title="Figs Gula Melaka Jam"
+                    data-price="20.00"
+                    data-img="assets/img/products/Figs Gula Melaka Jam/Set.png"
+                  ></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <div class="pagination-wrap" id="pagination">
+                  <!-- Dynamic Pagination Injected Here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end product section -->
+
+    <!-- footer -->
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box about-widget">
+              <h2 class="widget-title">About us</h2>
+              <p>
+                OnlyFigs is your premier destination for premium fig creations.
+                Our figs are sustainably sourced from
+                <a
+                  href="https://www.superfruitsvalley.com/superfruits"
+                  target="_blank"
+                  style="color: var(--of-primary)"
+                  >Superfruits Valley</a
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box get-in-touch">
+              <h2 class="widget-title">Get in Touch</h2>
+              <ul>
+                <li>Kuala Nerang, Kedah.</li>
+                <li>support@OnlyFigs.com</li>
+                <li>+00 111 222 3333</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box pages">
+              <h2 class="widget-title">Pages</h2>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="product.html">Shop</a></li>
+                <li><a href="thefigs.html">The Figs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box subscribe">
+              <h2 class="widget-title">Subscribe</h2>
+              <p>Subscribe to our mailing list to get the latest updates.</p>
+              <form action="index.html">
+                <input type="email" placeholder="Email" />
+                <button type="submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <p>Copyrights &copy; 2025 - All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 text-right col-md-12">
+            <div class="social-icons">
+              <ul>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fab fa-x-twitter"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end copyright -->
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Initialize wishlist state
+        if (typeof initWishlistIcons === "function") {
+          initWishlistIcons();
+        }
+
+        // 2. Local Scrape
+        const allCards = Array.from(document.querySelectorAll(".of-card"));
+        const scrapedProducts = allCards.map((card) => {
+          const btn = card.querySelector(".cart-btn-dom");
+          return {
+            id: btn.dataset.id,
+            title: btn.dataset.title,
+            price: parseFloat(btn.dataset.price),
+            img: btn.dataset.img,
+            cat: card.dataset.cat,
+            compare: null,
+            desc: "Description loaded from Product Page.",
+          };
+        });
+        localStorage.setItem(
+          "scraped_products",
+          JSON.stringify(scrapedProducts)
+        );
+
+        // State to keep track of current filters and pagination
+        let currentCat = "all";
+        let currentMaxPrice = 100;
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        // 3. FILTER & PAGINATION LOGIC
+        window.filterProducts = () => {
+          const searchTerm = document
+            .getElementById("productSearch")
+            .value.toLowerCase();
+
+          // Get all matching cards
+          const filteredCards = allCards.filter((card) => {
+            const catMatch =
+              currentCat === "all" || card.dataset.cat === currentCat;
+            const price = parseFloat(card.dataset.price);
+            const priceMatch = price <= currentMaxPrice;
+            const title = card
+              .querySelector(".of-title")
+              .innerText.toLowerCase();
+            const searchMatch = title.includes(searchTerm);
+
+            return catMatch && priceMatch && searchMatch;
+          });
+
+          // Sort if needed (default sorting handled by DOM order usually)
+          // Hide all first
+          allCards.forEach((c) => (c.style.display = "none"));
+
+          // Paginate
+          const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+          if (currentPage > totalPages)
+            currentPage = Math.ceil(totalPages) || 1;
+
+          const start = (currentPage - 1) * itemsPerPage;
+          const end = start + itemsPerPage;
+          const pageCards = filteredCards.slice(start, end);
+
+          pageCards.forEach((c) => (c.style.display = "block"));
+
+          renderPagination(totalPages);
+        };
+
+        function renderPagination(totalPages) {
+          const container = document.getElementById("pagination");
+          if (!container) return;
+
+          if (totalPages <= 1) {
+            container.innerHTML = "";
+            return;
+          }
+
+          let html = "<ul>";
+          // Prev
+          html += `<li><a href="javascript:void(0)" onclick="changePage(${
+            currentPage - 1
+          }, ${totalPages})">Prev</a></li>`;
+
+          // Pages
+          for (let i = 1; i <= totalPages; i++) {
+            html += `<li><a href="javascript:void(0)" class="${
+              i === currentPage ? "active" : ""
+            }" onclick="changePage(${i}, ${totalPages})">${i}</a></li>`;
+          }
+
+          // Next
+          html += `<li><a href="javascript:void(0)" onclick="changePage(${
+            currentPage + 1
+          }, ${totalPages})">Next</a></li>`;
+          html += "</ul>";
+
+          container.innerHTML = html;
+        }
+
+        window.changePage = (page, total) => {
+          if (page < 1 || page > total) return;
+          currentPage = page;
+          filterProducts();
+          window.scrollTo({ top: 400, behavior: "smooth" });
+        };
+
+        window.filterCat = (cat, el) => {
+          document
+            .querySelectorAll(".of-list li")
+            .forEach((li) => li.classList.remove("active"));
+          el.classList.add("active");
+          currentCat = cat;
+          currentPage = 1; // Reset to first page
+
+          // Update Category Description
+          const descBox = document.getElementById("categoryDesc");
+          const catTitle = document.getElementById("catTitle");
+          const catText = document.getElementById("catText");
+
+          if (cat === "Lokal Kultur Edition") {
+            catTitle.innerText = "Lokal Kultur Edition";
+            catText.innerHTML =
+              "Embracing the soul of Malaysia. Our <strong>Lokal Kultur Edition</strong> promotes the elegance of traditional Batik design to the world, merging timeless heritage with organic excellence.";
+            descBox.style.display = "block";
+          } else {
+            descBox.style.display = "none";
+          }
+
+          filterProducts();
+        };
+
+        window.updatePriceLabel = (val) => {
+          document.getElementById("priceLabel").innerText = `RM ${val}`;
+          currentMaxPrice = parseFloat(val);
+          currentPage = 1; // Reset to first page
+          filterProducts();
+        };
+
+        // 4. SORT LOGIC
+        window.sortProducts = () => {
+          const sortVal = document.getElementById("sortSelect").value;
+          const grid = document.getElementById("productGrid");
+
+          allCards.sort((a, b) => {
+            const titleA = a.querySelector(".of-title").innerText.toLowerCase();
+            const titleB = b.querySelector(".of-title").innerText.toLowerCase();
+            const priceA = parseFloat(a.dataset.price);
+            const priceB = parseFloat(b.dataset.price);
+
+            if (sortVal === "az") return titleA.localeCompare(titleB);
+            if (sortVal === "za") return titleB.localeCompare(titleA);
+            if (sortVal === "low") return priceA - priceB;
+            if (sortVal === "high") return priceB - priceA;
+            return 0;
+          });
+
+          grid.innerHTML = "";
+          allCards.forEach((c) => grid.appendChild(c));
+          filterProducts(); // Re-filter and re-paginate
+        };
+
+        // 5. SEARCH LOGIC (Initial From URL)
+        const params = new URLSearchParams(window.location.search);
+        const search = params.get("search");
+        if (search) {
+          document.getElementById("productSearch").value = search;
+          document.querySelector(
+            ".breadcrumb-text h1"
+          ).innerText = `Search: "${search}"`;
+        }
+
+        // Initial Filter call
+        filterProducts();
+      });
+    </script>
+    <div class="back-to-top"><i class="fas fa-angle-up"></i></div>
+  </body>
+</html>
